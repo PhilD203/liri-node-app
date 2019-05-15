@@ -1,0 +1,15 @@
+{
+  "name": "node-js-sample",
+  "version": "0.2.0",
+  "description": "A sample Node.js app using Express 4",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "node-spotify-api": "1.1.1",
+    "axios": "0.18.0",
+    "moment": "2.24.0",
+    "dotenv": "8.0.0"
+  }
+}

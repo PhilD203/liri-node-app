@@ -1,0 +1,43 @@
+-- -- -- LIRI NODE APP -- -- --
+
+declare packages 
+initialize packages
+
+prompt user
+    User prompt : What would you like to do tonight?
+        offer choices: 
+            Concert
+            Movies
+            Music 
+            
+            Tie choices to APIs
+
+            If choice was concert:
+                see what response API provides // RESP1
+                tailor choices based on API response 
+
+            If choice was movies: 
+                see what response API provides // RESP2
+                tailor choices based on API response 
+
+            If choice was Music: 
+                see what response API provides // RESP3
+                tailor choices based on API response 
+
+    Each Function to send out request/response to API
+    INPUT: Parsed URL (unique to the request (RESP1, RESP2, RESP3)) RESPONSE: OBJECT
+    FUNCTION: To send the request to the endpoint specified by the first choice.
+    EX: If the user selected concert, this api endpoint would be the concert api.
+
+
+    Function that is called when Concert RESP1 
+    INPUT: what thing to lookup (by artist, by zip); RESPONSE: OBJECT from API Function
+    FUNCTION: To generate a request and submit it to the API Function.
+
+    Function that is called when Movies RESP2
+
+
+    Function that is called when Music RESP3
+ 
+
+
