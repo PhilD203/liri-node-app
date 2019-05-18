@@ -51,7 +51,18 @@ figlet('Music Choice', function(err, data) {
 
    }
    else if(inquirerResponse.user_choice === "CONCERT-THIS"){
-
+    inquirer
+    .prompt([
+    {
+        type: "input",
+        message: "Which show would you want to see?",
+        name: "show_name"
+    }]).then(function(response) {
+        axios.get("https://rest.bandsintown.com/artists/" + response.name + "/events?app_id=codingbootcamp").then(function(response){
+            console.log(response);
+        }) 
+    })
+    
    }
    else if(inquirerResponse.user_choice === "MOVIE-THIS"){
        
