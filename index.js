@@ -65,8 +65,18 @@ figlet('Music Choice', function(err, data) {
     
    }
    else if(inquirerResponse.user_choice === "MOVIE-THIS"){
-       
-}
+    inquirer
+    .prompt([
+    {
+        type: "input",
+        message: "Which movie would you want to see?",
+        name: "movie_name"
+    }]).then(function(response) {
+        axios.get("https://www.omdbapi.com/?t=" + response.name + "&y=&plot=short&apikey=trilogy").then(function(response){
+            console.log(response);
+        }) 
+    })
+   }
     else if(inquirerResponse.user_choice === "DO-WHAT-IT-SAYS"){
        
 }
