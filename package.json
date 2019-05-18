@@ -7,9 +7,12 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "node-spotify-api": "1.1.1",
     "axios": "0.18.0",
+    "dotenv": "8.0.0",
+    "figlet": "^1.2.1",
+    "inquirer": "^6.3.1",
+    "minimist": "^1.2.0",
     "moment": "2.24.0",
-    "dotenv": "8.0.0"
+    "node-spotify-api": "^1.1.1"
   }
 }
