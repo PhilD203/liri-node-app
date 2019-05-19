@@ -4,6 +4,7 @@ let inquirer = require("inquirer");
 let axios = require("axios");
 let figlet = require('figlet');
 let moment = require("moment");
+let fs = require("fs");
 let Spotify = require('node-spotify-api');
 let spotify = new Spotify(keys.spotify);
 
@@ -93,7 +94,20 @@ figlet('The Entertainer', function (err, data) {
                 }
 
             else if (inquirerResponse.user_choice === "DO-WHAT-IT-SAYS") {
+                function entertainerSays() {
 
+
+                    fs.readFile("random.text", "utf8", function(error, data) {
+                      if (error) {
+                        return console.log(error);
+                      }
+                        var output = data.split(",");
+                        for (var i = 0; i < output.length; i++) {
+                            console.log(output[i]);
+                        }
+                      });
+                };
+                entertainerSays();
             }
 
     });
