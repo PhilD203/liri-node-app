@@ -57,10 +57,13 @@ figlet('Music Choice', function (err, data) {
                             var queryBands = "https://rest.bandsintown.com/artists/" + response.name + "/events?app_id=codingbootcamp";
 
                             axios.get(queryBands).then(
-                                function(bandResponse){     
-                                    console.log("Venue: " + bandResponse.data[0].venue.name);
-                                    console.log("City: " + bandResponse.data[0].venue.city);
-                                    console.log(moment(bandResponse.data[0].datetime).format("MM/DD/YYYY"));
+                                function(bandResponse){   
+                                    
+                                    console.log(`
+                                    Venue: ${bandResponse.data[0].venue.name}
+                                    City:  ${bandResponse.data[0].venue.city}
+                                    Date: ${(moment(bandResponse.data[0].datetime).format("MM/DD/YYYY"))}
+                                    `)
                                 })        
                     })
             }
