@@ -7,7 +7,7 @@ let moment = require("moment");
 let Spotify = require('node-spotify-api');
 let spotify = new Spotify(keys.spotify);
 
-figlet('Music Choice', function (err, data) {
+figlet('The Entertainer', function (err, data) {
     if (err) {
         console.log('Something went wrong...');
         console.dir(err);
@@ -54,7 +54,7 @@ figlet('Music Choice', function (err, data) {
                             name: "show_name"
                         }]).then(function (response) {
 
-                            var queryBands = "https://rest.bandsintown.com/artists/" + response.name + "/events?app_id=codingbootcamp";
+                            var queryBands = "https://rest.bandsintown.com/artists/" + response.show_name + "/events?app_id=codingbootcamp";
 
                             axios.get(queryBands).then(
                                 function(bandResponse){   
@@ -76,18 +76,26 @@ figlet('Music Choice', function (err, data) {
                             message: "Which movie would you want to see?",
                             name: "movie_name"
                         }]).then(function (response) {
-                            axios.get("https://www.omdbapi.com/?t=" + response.name + "apikey=trilogy", function (err, data) {
-                                if (err) {
-                                    return console.log('Error occurred: ' + err);
-                                }
-                                console.log(`
-                                        Title: ${response.title}
-                                        Year: ${response.year}
-                                        Rating: ${response.rated}
-                                        Plot: ${response.plot}
-                                    `)
+
+                            var movieQuery = "https://www.omdbapi.com/?t=" + response.movie_name + "&y=&plot=short&apikey=trilogy";
+
+                            axios.get(movieQuery).then(function(movieResponse){
+                                console.log("Year: " + movieResponse.data.Year);
+                                console.log("Rated: " + movieResponse.data.imdbRating);
+                                console.log("Actors: " + movieResponse.data.Actors);
+                                console.log("Plot: " + movieResponse.data.Plot);
+
+
+                                //  console.log(`
+                                //         Title: ${esponse.data[0].title}
+                                //         Year: ${response.data[0].year}
+                                //         Rating: ${response.data[0].rated}
+                                //         Plot: ${response.data[0].plot}
+                                //     `)
                             })
+                               
                         })
+                        
                 }
 
             else if (inquirerResponse.user_choice === "DO-WHAT-IT-SAYS") {
