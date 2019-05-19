@@ -80,20 +80,14 @@ figlet('The Entertainer', function (err, data) {
                             var movieQuery = "https://www.omdbapi.com/?t=" + response.movie_name + "&y=&plot=short&apikey=trilogy";
 
                             axios.get(movieQuery).then(function(movieResponse){
-                                console.log("Year: " + movieResponse.data.Year);
-                                console.log("Rated: " + movieResponse.data.imdbRating);
-                                console.log("Actors: " + movieResponse.data.Actors);
-                                console.log("Plot: " + movieResponse.data.Plot);
 
-
-                                //  console.log(`
-                                //         Title: ${esponse.data[0].title}
-                                //         Year: ${response.data[0].year}
-                                //         Rating: ${response.data[0].rated}
-                                //         Plot: ${response.data[0].plot}
-                                //     `)
-                            })
-                               
+                                console.log(`
+                                Year: ${movieResponse.data.Year}
+                                Rated: ${movieResponse.data.imdbRating}
+                                Actors: ${movieResponse.data.Actors}
+                                Plot: ${movieResponse.data.Plot}
+                                `)
+                            })                             
                         })
                         
                 }
